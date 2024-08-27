@@ -22,8 +22,8 @@ export class CameraComponent implements OnInit {
   audioOutput: any[];
   stream: any = null;
   facecam: MediaStream = null;
-  @ViewChild('camera')
-  camera: ElementRef<HTMLVideoElement>;
+
+  @ViewChild('camera') camera: ElementRef<HTMLVideoElement>;
   @ViewChild('webcamera')
   webcamera: ElementRef<HTMLVideoElement>;
   @ViewChild('cameraReplay')
@@ -44,17 +44,14 @@ export class CameraComponent implements OnInit {
   screenSelectPopUp: BrowserWindow;
   constructor( private e: ElectronService, private sanitizer: DomSanitizer) {
 
- 
+
 
   }
 
   ngOnInit(): void {
-
-
     this.isElectron = this.e.isElectronApp;
     this.getWebCamSources();
     this.getScreenSources();
-    console.log(this.videodevices);
   }
   ngAfterViewInit(): void {
     // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
@@ -62,7 +59,11 @@ export class CameraComponent implements OnInit {
 
 
   }
-
+   getCameraElement(): ElementRef<HTMLVideoElement> {
+    console.log('Camera element:', this.camera);
+     globalThis.globalEl = this.camera.nativeElement;
+    return this.camera;
+  }
   async getMedia(): Promise<void> {
     if (this.e.isElectronApp) {
       this.facecam = await MediaDevices.getUserMedia({ video: true, audio: false });
@@ -113,7 +114,6 @@ export class CameraComponent implements OnInit {
 
   play(): void {
     this.camera.nativeElement.play();
-    this.webcamera.nativeElement.play();
   }
   pause(): void {
     this.camera.nativeElement.pause();

@@ -33,6 +33,7 @@
     "@angular/router": "~11.2.11",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "@types/electron": "^1.6.10",
+    "async-mutex": "^0.4.0",
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.1",
     "faker": "^5.5.3",
@@ -48,8 +49,8 @@
     "path": "^0.12.7",
     "recordrtc": "^5.6.2",
     "requirejs": "^2.3.6",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {

@@ -9,8 +9,11 @@ import { ScreenselectComponent } from './windows/screenselect/screenselect.compo
 import { HttpClientModule } from '@angular/common/http';
 import { ApidemoComponent } from './windows/apidemo/apidemo.component';
 import {ConnectionServiceModule} from 'ngx-connection-service';
-import { NavbarComponent } from './components/navbar/navbar.component'; 
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {EmotionBarsModule} from "./components/emotion-bars/emotion-bars.module";
+import {FaceTrackerComponent} from "./components/face-tracker/face-tracker.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -24,7 +27,7 @@ const routes: Routes = [
     CameraComponent,
     ScreenselectComponent,
     ApidemoComponent,
-    NavbarComponent
+    NavbarComponent,FaceTrackerComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ const routes: Routes = [
     ConnectionServiceModule,
     NgxElectronModule,
     RouterModule.forRoot(routes, {useHash: true}),
-    
+    EmotionBarsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
